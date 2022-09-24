@@ -1,5 +1,5 @@
 import Spline from "@splinetool/react-spline";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Typewriter from "typewriter-effect";
 import {
   VerticalTimeline,
@@ -20,6 +20,13 @@ import {
 } from "react-icons/io5";
 
 function App() {
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(true);
+    }, 10000);
+  }, []);
+
   const icons = [
     <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />,
     <IoLogoYoutube className="text-red-500 text-3xl cursor-pointer" />,
@@ -29,8 +36,8 @@ function App() {
   ];
   return (
     <AnimatePresence initial={false}>
-      <div className="w-screen h-screen flex">
-        <nav className="w-2/4 h-14 z-50 left-1/4 fixed inset-x-0 flex justify-center items-center bg-red-300 rounded-lg top-1">
+      <div className="w-screen h-screen flex bg-[#ebbbb1]">
+        <nav className="w-2/4 h-14 z-20 left-1/4 fixed inset-x-0 flex justify-center items-center bg-[#F3558880] rounded-lg top-1">
           <div className="h-14 w-20 flex justify-center items-center">
             <a
               className="font-semibold rounded-lg text-slate-600  hover:text-white active:text-sm"
@@ -72,7 +79,7 @@ function App() {
             width={600}
           />
         </div>
-        <main className="absolute z-40 left-20 top-80 flex-col h-3/4 w-full overflow-sticky">
+        <main className="absolute z-10 left-20 top-80 flex-col h-3/4 w-full overflow-sticky">
           <div className="text-5xl font-Rampart w-96 h-48 text-slate-500 hover:text-blue-900">
             <Typewriter
               options={{
@@ -87,7 +94,7 @@ function App() {
               }}
             />
           </div>
-          <section className="mt-10" id="about">
+          <section id="about">
             <h1 className="text-semibold text-3xl font-Rampart text-slate-600">
               About
             </h1>
@@ -114,13 +121,10 @@ function App() {
               journey I have learnt languages like C++,Java,Python etc...
             </p>
           </section>
-          <h1
-            className="mt-10 text-slate-600 font-Rampart text-3xl"
-            id="education"
-          >
+          <h1 className=" text-slate-600 font-Rampart text-3xl" id="education">
             Education
           </h1>
-          <section className="w-3/4 mt-10">
+          <section className="w-3/4 ">
             <VerticalTimeline>
               {Education &&
                 Education.map((m) => (
@@ -159,7 +163,7 @@ function App() {
 
           <section className="flex flex-col" id="projects">
             <h1 className="text-slate-600 font-Rampart text-3xl">Projects</h1>
-            <div className="w-[45%] mt-10 grid grid-cols-2 gap-4">
+            <div className="w-[45%]  grid grid-cols-2 gap-4">
               {Projects &&
                 Projects.map((m) => (
                   <Card
@@ -173,10 +177,10 @@ function App() {
                 ))}
             </div>
           </section>
-          <h1 className="mt-10 text-slate-600  font-Rampart text-3xl">
+          <h1 className=" text-slate-600  font-Rampart text-3xl">
             Follow me on
           </h1>
-          <section className="mt-10 h-32 " id="contacts">
+          <section className="h-32 " id="contacts">
             <div className="flex items-center justify-evenly w-full my-4 flex-wrap gap-4">
               {Socials &&
                 Socials.map((n) => (
@@ -195,9 +199,20 @@ function App() {
           </section>
         </main>
 
-        <div className="fixed  h-screen w-screen">
+        <div className="fixed  h-screen w-screen bg-[#ebbbb1]">
           <Spline scene="https://prod.spline.design/WKSrMjfKUPodFvFp/scene.splinecode" />
         </div>
+        {!loading && (
+          <div className="z-40 h-screen w-screen  bg-[#ebbbb1] flex flex-col items-center justify-center">
+            <h1 className="text-center text-6xl text-violet-400 font-Rampart ml-10">
+              Loading...
+            </h1>
+            <p className="text-red-500 font-Satisfy mt-10 text-xl">
+              Note - Place the cursor on the right side and scroll to see the
+              effect
+            </p>
+          </div>
+        )}
       </div>
     </AnimatePresence>
   );
