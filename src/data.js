@@ -63,6 +63,14 @@ export const Projects = [
   },
   {
     id: 4,
+    title: "TodoX",
+    imgSrc: Ellen,
+    techStack: "Next JS,HTML/CSS",
+    live: "https://todo-chi-two.vercel.app",
+    github: "https://github.com/sanibalakrishna/Todo",
+  },
+  {
+    id: 5,
     title: "Ellen",
     imgSrc: Ellen,
     techStack: "Unity-3D,C#,Assets",
@@ -71,7 +79,7 @@ export const Projects = [
       "https://drive.google.com/drive/folders/1dQN37myGaa14shQwjnAjO0cZLi5x6K7x?usp=sharing",
   },
   {
-    id: 5,
+    id: 6,
     title: "Smart-Health-Monitoring-System",
     imgSrc: shms,
     techStack: "IoT,c++",
